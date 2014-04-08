@@ -1,30 +1,38 @@
 class UsersController < ApplicationController
 
-  def index
-
+  before_action :authenticate, only: [:destroy, :update]
+  def index #admin info
+    @users = User.all
   end
 
   def new
-
+    @user = User.new
   end
 
   def create
-
+    @user = User.create(user_params)
+    redirect_to @user
   end
 
   def show
-
+    @user = current_user
+    @links = @user.links
   end
 
   def edit
-
+    @user = current_user
   end
 
   def update
-
+      @user.update(user_params)
+      redirect_to @user
   end
 
   def destroy
+    current_user.e
+    @user = User.find(params[:id])
+    @user.destroy
+
 
   end
 
