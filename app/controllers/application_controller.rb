@@ -5,10 +5,15 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
   def current_user
-
+    if session[:user_id]
+       return User.find(session[:user_id])
+    end
   end
 
   def authenticate
-
+    unless current_user
+      flash[:notice] = "Sed.t says'Yo gotta login for this action'"
+      redirect_to login_path
+    end
   end
 end
