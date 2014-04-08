@@ -33,7 +33,7 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+ gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -43,3 +43,14 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :development, :test do
+	gem 'rspec-rails'
+	gem 'shoulda-matchers'
+	gem 'annotate'
+	gem 'simplecov'
+	gem 'better_errors'
+	gem 'rb-fsevent'
+	gem 'guard-rspec'
+	gem 'factory_girl_rails'
+end

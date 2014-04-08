@@ -344,7 +344,7 @@ user_id}</string>
 \f0\fs24 \cf0 ID\
 user_id\
 link_id\
-vote}</string>
+score}</string>
 						<key>VerticalPad</key>
 						<integer>0</integer>
 					</dict>
@@ -441,7 +441,7 @@ vote}</string>
 \f0\fs24 \cf0 ID\
 url\
 title\
-score}</string>
+tally}</string>
 						<key>VerticalPad</key>
 						<integer>0</integer>
 					</dict>
@@ -684,7 +684,7 @@ down_vote}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2014-04-08 21:33:29 +0000</string>
+	<string>2014-04-08 21:42:03 +0000</string>
 	<key>Modifier</key>
 	<string>Stephen Saunders</string>
 	<key>NotesVisible</key>
