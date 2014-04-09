@@ -10,14 +10,3 @@
 #  updated_at :datetime
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  link_url: MyString
-  title: MyString
-  score: 1
-
-two:
-  link_url: MyString
-  title: MyString
-  score: 1

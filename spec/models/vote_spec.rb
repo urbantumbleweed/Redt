@@ -10,14 +10,3 @@
 #  updated_at :datetime
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  score: 1
-  user_id: 
-  link_id: 
-
-two:
-  score: 1
-  user_id: 
-  link_id: 
