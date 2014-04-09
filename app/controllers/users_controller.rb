@@ -1,9 +1,16 @@
 class UsersController < ApplicationController
 
-  before_action :authenticate, only: [:destroy, :update]
+  before_action :authenticate, only: [:new,:create,:edit,:update,:destroy]
 
   def index #admin info
     @users = User.all
+  end
+
+  def show
+    @user = User.find(params[:id])
+    # if @user.links
+    # @links = @user.links
+    # end
   end
 
   def new
@@ -12,14 +19,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+    if @user.save
     redirect_to @user
-  end
-
-  def show
-    @user = User.find(params[:id])
-    # if @user.links
-    # @links = @user.links
-    # end
+    else
+      redirect_to 'new'
+    end
   end
 
   def edit

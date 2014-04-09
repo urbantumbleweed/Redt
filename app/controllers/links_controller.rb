@@ -2,6 +2,7 @@ class LinksController < ApplicationController
 
   def index
     @links=Link.all
+    @user=User.find(params[:user_id])
   end
 
   def show
@@ -10,7 +11,7 @@ class LinksController < ApplicationController
 
   def new
     @link=Link.new
-    @user=current_user
+    @user=User.find(params[:user_id])
   end
 
   def create
