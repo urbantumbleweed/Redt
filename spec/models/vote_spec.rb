@@ -10,3 +10,15 @@
 #  updated_at :datetime
 #
 
+require 'spec_helper'
+
+describe Vote do
+
+	it {should validate_presence_of(:score)}
+	it {should validate_numericality_of(:score).only_integer}
+
+	it {should belong_to(:user)}
+	it {should belong_to(:link)}
+
+
+end
