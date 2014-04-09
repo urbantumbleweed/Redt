@@ -20,9 +20,10 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
-    redirect_to @user
+      redirect_to @user
     else
-      redirect_to 'new'
+      flash[:notice]="Please correct the following errors"
+      render 'new'
     end
   end
 
