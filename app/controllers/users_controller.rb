@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :authenticate, only: [:destroy, :update]
-  
+
   def index #admin info
     @users = User.all
   end
@@ -16,12 +16,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @links = @user.links
+    @user = User.find(params[:id])
+    # if @user.links
+    # @links = @user.links
+    # end
   end
 
   def edit
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   def update
@@ -30,7 +32,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    current_user.e
     @user = User.find(params[:id])
     @user.destroy
 
