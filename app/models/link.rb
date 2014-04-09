@@ -15,6 +15,7 @@ class Link < ActiveRecord::Base
   # validates that the user it's related to is valid when it's created
   validates_associated :user
 
+
   validates(:link_url,:title,:tally,:user_id, presence: true)
   validates(:link_url,uniqueness: true)
   validates(:tally,numericality: {only_integer: true})
