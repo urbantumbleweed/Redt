@@ -1,9 +1,16 @@
 <!-- THIS FORM IS PERFECT!!! so user friendly and funny ahhhhhhhh, i'm so happy to be a part of this project with you  -->
+<% if flash[:notice] %>
+<%= flash[:notice] %>
+<% end %>
+<br>
+<div>
 <% if @user.errors.any? %>
 <% @user.errors.full_messages.each do |msg| %>
 <%= msg %>
 <% end %>
 <% end %>
+</div>
+<br>
 
 <%= form_for @user do |f| %>
 	<div>
@@ -24,9 +31,6 @@
 		<%= f.label(:username, "Step 4: Pick a handle... so we know who sed.t") %>
 		<%= f.text_field(:username) %>
 	</div>
-
-
-
 
 	<%= f.submit("I'm good to go!") %>
 <% end %>
