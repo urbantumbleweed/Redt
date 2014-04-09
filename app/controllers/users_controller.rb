@@ -8,9 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # if @user.links
-    # @links = @user.links
-    # end
+    @links = @user.links
   end
 
   def new
@@ -19,7 +17,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    if @user.save
+    if @user
       redirect_to @user
     else
       flash[:notice]="Please correct the following errors"

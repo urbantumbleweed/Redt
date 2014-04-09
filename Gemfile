@@ -53,4 +53,6 @@ group :development, :test do
 	gem 'rb-fsevent'
 	gem 'guard-rspec'
 	gem 'factory_girl_rails'
+	gem 'binding_of_caller'
 end
+

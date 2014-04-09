@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
       redirect_to @user
     else
       flash[:notice]="Login info not found. Please try again."
-      renderl 'new'
+      render 'new'
     end
   end
 

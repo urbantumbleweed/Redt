@@ -1,8 +1,7 @@
 class LinksController < ApplicationController
 
   def index
-    @links=Link.all
-    @user=User.find(params[:user_id])
+    # @links=Link.all.order(:tally :desc)
   end
 
   def show
@@ -11,17 +10,25 @@ class LinksController < ApplicationController
 
   def new
     @link=Link.new
-    @user=User.find(params[:user_id])
+    @user=current_user
+    @path = [@user, @link]
   end
 
   def create
-    @link=Link.create(link_params)
-    redirect_to @link
+    @user=User.find(params[:user_id])
+    @link=@user.links.create!(link_params)
+    if @link.save
+    redirect_to @user
+    else
+    flash[:notice]="Please correct the following errors."
+    render 'new'
+    end
   end
 
   def edit
     @link=Link.find(params[:id])
-    @user=current_user
+    @user = current_user
+    @path = @link
   end
 
   def update
@@ -30,9 +37,25 @@ class LinksController < ApplicationController
     redirect_to @link
   end
 
-  def destroy
+  def upvote
+    @user=current_user
     @link=Link.find(params[:id])
-    @link.destroy
+    @link.upvote(@user)
+    redirect_to @user
+  end
+
+  def downvote
+    @user=current_user
+    @link=Link.find(params[:id])
+    @link.downvote(@user)
+    redirect_to @user
+  end
+
+  def destroy
+    @user=current_user
+    @link=Link.find(params[:id])
+    @link.destroy(@user)
+    redirect_to @user
   end
 
   private

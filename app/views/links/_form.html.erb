@@ -1,9 +1,19 @@
 <h1>Sey What?</h1>
 
-<%= form_for new_user_link_path do |f| %>
+<% if flash[:notice] %>
+<%= flash[:notice] %>
+<% end %>
+
+<% if @link.errors.any? %>
+<% @link.errors.full_messages.each do |msg| %>
+<%= msg %>
+<% end %>
+<% end %>
+
+<%= form_for @path do |f| %>
 <strong><%= @user.username.capitalize %></strong>
 seys
-<%= f.text_field(:title , placeholder: "Title goes here") %>
+<%= f.text_field(:title , :placeholder => "Title goes here") %>
 <br>
 <%= f.label(:link_url) %>
 <%= f.text_field(:link_url) %>
