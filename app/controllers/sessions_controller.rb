@@ -1,9 +1,9 @@
 class SessionsController < ApplicationController
 
   def new
-    if current_user
-      redirect_to user_path(current_user)
-    end
+    # if current_user
+    #   redirect_to user_path(current_user)
+    # end
   end
 
   def create
@@ -17,7 +17,8 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to @user
     else
-      redirect_to 'new'
+      flash[:notice]="Login info not found. Please try again."
+      render 'new'
     end
   end
 
