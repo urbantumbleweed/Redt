@@ -1,8 +1,12 @@
 <h1>Sey What?</h1>
 
-<%= form_for @link do |f| %>
-<%= @user.username %>
+<%= form_for new_user_link_path do |f| %>
+<strong><%= @user.username.capitalize %></strong>
 seys
-<%= f.text_field(:title) %>
+<%= f.text_field(:title , placeholder: "Title goes here") %>
+<br>
+<%= f.label(:link_url) %>
 <%= f.text_field(:link_url) %>
+<br>
+<%= f.submit "Sey it!" %>
 <% end %>
