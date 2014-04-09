@@ -1,5 +1,6 @@
-FactortGirl.define do 
+FactoryGirl.define do
 
 	factory :poster, class: User do
-		
+  end
+
 end
