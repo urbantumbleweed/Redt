@@ -20,4 +20,8 @@ describe Link do
 
   it{should validate_uniqueness_of(:link_url)}
 
+  it{should validate_numericality_of(:tally).only_integer}
+
+  it{should belong_to(:user)}
+
   end
