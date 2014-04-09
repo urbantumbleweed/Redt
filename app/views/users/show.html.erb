@@ -14,6 +14,7 @@
 	<%= @user.email %>
 </div>
 
+  <% if @links %>
 <% @links.each do |link| %>
 	<p><%= link.score %> |
 		<%= link_to(link.title, link.url) %> |
@@ -23,4 +24,5 @@
     so it'd be "Ded,t", link, method:
     also i would post this line in, it just makes a confirmation box pop up, you put it after the :delete so like :delete, data: {confirm: "Whatever message you want to pop-up"}-->
 		<%= link_to("Ded.t", link_path, method: :delete, class: "ded") %></p>
+    <% end %>
 <% end %>

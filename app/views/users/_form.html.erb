@@ -9,7 +9,7 @@
 		<%= f.label(:password, "Step 2: Pick that password.") %>
 		<%= f.password_field(:password) %>
 		<!-- i'm not sure how this will render w/o a label field, like they might not know to put it in twice, we should run and c it -->
-		<%= f.password_confirmation(:password_confirmation) %>
+		<%= f.password_field(:password_confirmation) %>
 	</div>
 
 	<div>
