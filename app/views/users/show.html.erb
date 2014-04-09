@@ -1,18 +1,26 @@
 <h2><%= @user.username %>, this is for you.</h2>
+
+<!-- form_tag default method is post! so you don't need to specify :) -->
 <%= form_tag new_link_path, method: :post do %>
 	<%= label_tag(:new_url, "Fresh Sed") %>
 	<%= text_field_tag(:new_url) %>
+  <!-- this would be cuter if it said "say it" instead! like on twitter u don't "twitter" you tweet, so say it wud be our verb form, or we could do "sey" it. like "sey it, sed it" or we can leave sed it maybe it'll go well with the "fresh sed" or we could call that "fresh seying", we can review as a whole l8r -->
 	<%= submit_tag("Sed.t") %>
 <% end %>
 
 <div>
+  <!-- why is their email here? -->
 	<p>Your email:</p>
 	<%= @user.email %>
 </div>
 
 <% @links.each do |link| %>
-	<p><%= link.score %> | 
-		<%= link_to(link.title, link.url) %> | 
+	<p><%= link.score %> |
+		<%= link_to(link.title, link.url) %> |
+    <!-- hahahahah!! i love these! edt and dedt -->
 		<%= link_to("Ed.t", edit_link_path, class: "ed") %>
+    <!-- the syntax for deleting is "link text", object to be deleted, method
+    so it'd be "Ded,t", link, method:
+    also i would post this line in, it just makes a confirmation box pop up, you put it after the :delete so like :delete, data: {confirm: "Whatever message you want to pop-up"}-->
 		<%= link_to("Ded.t", link_path, method: :delete, class: "ded") %></p>
 <% end %>
