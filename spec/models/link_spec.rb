@@ -10,6 +10,7 @@
 #  updated_at :datetime
 #
 
+
 require 'spec_helper'
 
 describe Link do
@@ -25,3 +26,4 @@ describe Link do
   it{should belong_to(:user)}
 
   end
+
