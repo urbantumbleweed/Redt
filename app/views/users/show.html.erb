@@ -1,0 +1,18 @@
+<h2><%= @user.username %>, this is for you.</h2>
+<%= form_tag new_link_path, method: :post do %>
+	<%= label_tag(:new_url, "Fresh Sed") %>
+	<%= text_field_tag(:new_url) %>
+	<%= submit_tag("Sed.t") %>
+<% end %>
+
+<div>
+	<p>Your email:</p>
+	<%= @user.email %>
+</div>
+
+<% @links.each do |link| %>
+	<p><%= link.score %> | 
+		<%= link_to(link.title, link.url) %> | 
+		<%= link_to("Ed.t", edit_link_path, class: "ed") %>
+		<%= link_to("Ded.t", link_path, method: :delete, class: "ded") %></p>
+<% end %>

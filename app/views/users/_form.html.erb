@@ -1,0 +1,19 @@
+<%= form_for @user do |f| %>
+	<div>
+		<%= f.label(:email, "Step 1: Enter that email.") %>
+		<%= f.email_field(:email) %>
+	</div>
+
+	<div>
+		<%= f.label(:password, "Step 2: Pick that password.") %>
+		<%= f.password_field(:pasword) %>
+		<%= f.password_confirmation(:password_confirmation) %>
+	</div>
+
+	<div>
+		<%= f.label(:username, "Step 3: Pick a handle... so we know who sed.t") %>
+		<%= f.text_field(:username) %>
+	</div>
+
+	<%= f.submit("I'm good to go!") %>
+<% end %>
