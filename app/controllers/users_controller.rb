@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :authenticate, only: [:destroy, :update]
+  
   def index #admin info
     @users = User.all
   end
