@@ -1,0 +1,25 @@
+
+<%= link_to "Most Popular Seyings", root_path %>
+<%= link_to "Most Recent Seyings", most_recent_links_path %>
+<br>
+
+<p class="errors">
+    <% if flash[:notice] %>
+<%= flash[:notice] %>
+<% end %>
+</p>
+
+<% @links.each do |link| %>
+
+    <div class="link_info">
+    <div class="link_vote">
+    <%= link_to image_tag('upvote.png', width:'16px'), upvote_path(link), method: :post %>
+    <%= link.tally %>
+    <%= link_to image_tag('downvote.png', width:'16px'), downvote_path(link), method: :post %>
+    </div>
+        <%= link_to link.user.username, user_path(link.user), { :class=>"username" }  %>
+        sed
+        <%= link_to link.title, link.link_url %>
+    </div>
+     <br>
+<% end %>
