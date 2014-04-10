@@ -3,7 +3,10 @@
 
 <%= render 'form' %>
 
-
-<%= link_to "Delete Account", @user, method: :delete, data: {confirm: Are you sure?} %>
-
+<br>
+<br>
+<br>
+<br>
+<%= button_to "Delete Account", {action:"destroy"}, method: :delete, data: { confirm: "Are you sure? \nOnce an account is deleted all your links and information will be deleted as well"} %>
 </div>
+
