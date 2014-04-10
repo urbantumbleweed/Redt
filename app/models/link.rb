@@ -13,7 +13,7 @@ class Link < ActiveRecord::Base
   end
 
   def find_vote(user)
-    Vote.where("link_id = ? AND user_id = ?", self.id, user.id).first
+    Vote.where(link_id: self.id).where(user_id: user.id).first
   end
 
   def update_tally(score)
