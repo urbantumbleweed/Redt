@@ -37,7 +37,7 @@
   text-decoration: none;
   color: rgb(0,115,36);
   font-size: 16px;
-  margin: 0 0 0 10px;
+  margin: 0 0 0 13px;
   padding: 10px 0 0 0;
   font-weight: bold;
   text-transform: uppercase;
@@ -50,10 +50,12 @@
 .errors {
   color: rgb(141,0,14);
   font-weight: bold;
+  font-size: 15px;
+  font-style: italic;
 }
 
 /*LOGIN PAGE*/
-#login_wrapper, #new_user_wrapper, #edit_user_wrapper, #new_link_wrapper {
+#login_wrapper, #new_user_wrapper, #edit_user_wrapper, #new_link_wrapper, #edit_link_wrapper, #user_show_page_wrapper, .link_index_wrapper, #user_index_wrapper{
   margin: 0 0 0 20px;
 }
 
@@ -68,4 +70,32 @@
   color: rgb(141,0,14);
 }
 
+/*USER SHOW PAGE*/
 
+.link_info {
+  margin: 10px 0 0 0px;
+  font-size: 18px;
+  background-color: gray;
+  padding: 5px;
+  display: inline-block;
+  color:
+}
+.link_info a {
+  color: white;
+}
+
+.link_vote {
+  display: inline-block;
+  padding: 0 10px 0 0;
+}
+
+/*LINKS SHOW PAGE*/
+
+.link_index_wrapper {
+  margin-top: 60px;
+}
+
+
+.username {
+  text-decoration: none;
+}
