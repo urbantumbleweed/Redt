@@ -54,5 +54,6 @@ group :development, :test do
 	gem 'guard-rspec'
 	gem 'factory_girl_rails'
 	gem 'binding_of_caller'
+	gem 'pry-rails'
 end
 
