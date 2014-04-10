@@ -37,7 +37,7 @@ class LinksController < ApplicationController
 
   def update
     @link=Link.find(params[:id])
-    @link.update(link_params)
+    @link.update(:title=>params[:title])
     redirect_to @link
   end
 
