@@ -5,9 +5,67 @@
  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
  * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
  *
+ green = rgb(0,115,36)
+ red = rgb(141,0,14)
+ white = rgb(254,254,254)
+ grey = rgb(77,77,77)
+
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
- */
+ * /
+ * = require_tree .
+ * = require_self
+
+
+
+/*HEADER*/
+.main_header {
+  display: block;
+  background-color: black;
+  height: 70px;
+}
+
+.header_img {
+  width: 200px;
+  margin: 14px 0 0 5px;
+}
+
+.main_nav {
+  margin: -75px 0 0 250px;
+}
+.main_nav a {
+  text-decoration: none;
+  color: rgb(0,115,36);
+  font-size: 16px;
+  margin: 0 0 0 10px;
+  padding: 10px 0 0 0;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.wrapper {
+  margin: 40px 0 0 0;
+}
+
+.errors {
+  color: rgb(141,0,14);
+  font-weight: bold;
+}
+
+/*LOGIN PAGE*/
+#login_wrapper, #new_user_wrapper, #edit_user_wrapper {
+  margin: 0 0 0 20px;
+}
+
+/*SIGN UP PAGE*/
+.errors_list {
+  list-style: circle;
+  margin: 0 0 0 15px;
+}
+
+.errors_list li {
+  margin: 0;
+  color: rgb(141,0,14);
+}
+
+
