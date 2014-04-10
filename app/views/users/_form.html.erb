@@ -1,16 +1,15 @@
-<!-- THIS FORM IS PERFECT!!! so user friendly and funny ahhhhhhhh, i'm so happy to be a part of this project with you  -->
 <% if flash[:notice] %>
+<p class="errors">
 <%= flash[:notice] %>
-<% end %>
-<br>
-<div>
 <% if @user.errors.any? %>
+<ul class='errors_list'>
 <% @user.errors.full_messages.each do |msg| %>
-<%= msg %>
+<li><%= msg %></li>
 <% end %>
 <% end %>
-</div>
-<br>
+</ul>
+<% end %>
+</p>
 
 <%= form_for @user do |f| %>
 	<div>
@@ -21,8 +20,6 @@
 	<div>
 		<%= f.label(:password, "Step 2: Pick that password.") %>
 		<%= f.password_field(:password) %>
-		<!-- i'm not sure how this will render w/o a label field, like they might not know to put it in twice, we should run and c it -->
-		<br>
 		<%= f.label(:password_confirmation, "Step 3: Confirm that password") %>
 		<%= f.password_field(:password_confirmation) %>
 	</div>
