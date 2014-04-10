@@ -1,7 +1,11 @@
 class LinksController < ApplicationController
 
   def index
-    # @links=Link.all.order(:tally :desc)
+    @links=Link.all.order(tally: :desc)
+  end
+
+  def most_recent
+    @links=Link.all.order(created_at: :desc)
   end
 
   def show
@@ -40,14 +44,14 @@ class LinksController < ApplicationController
   def upvote
     @user=current_user
     @link=Link.find(params[:id])
-    @link.upvote(@user)
+    @link.score_link(@user, 1)
     redirect_to @user
   end
 
   def downvote
     @user=current_user
     @link=Link.find(params[:id])
-    @link.downvote(@user)
+    @link.score_link(@user, -1)
     redirect_to @user
   end
 
