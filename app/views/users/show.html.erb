@@ -1,4 +1,6 @@
-<h2><%= @user.username %>'s famous sayings</h2>
+<div id="user_show_page_wrapper">
+
+    <h1><%= @user.username %>'s famous seyings</h1>
 
 <% if flash[:notice] %>
 <%= flash[:notice] %>
@@ -6,21 +8,28 @@
 
   <% unless @user.links.empty? %>
     <% @user.links.each do |link| %>
+    <div class="link_info">
 
-        <%= form_tag upvote_path(link) do %>
-            <%= submit_tag "^" %>
+    <div class="link_vote">
+    <%= link_to image_tag('upvote.png', width:'16px'), upvote_path(link), method: :post %>
+    <%= link.tally %>
+    <%= link_to image_tag('downvote.png', width:'16px'), downvote_path(link), method: :post %>
+    </div>
+
+        <%= link_to(link.title, link.link_url) %>
+
+        <% if @user == current_user %>
+        ||
+        <%= link_to("Ed.t", edit_link_path(link)) %>
+        or
+        <%= link_to("Ded.t", link, method: :delete, data: {confirm: "Are you sure?"}) %>
         <% end %>
-        <%= link.tally %>
+    </div>
+    <br>
+    <% end %>
+  <% end %>
 
-        <%= form_tag downvote_path(link) do %>
-            <%= submit_tag  "v"%>
-        <% end %>
-            <p>
-                <%= link_to(link.title, link.link_url) %> |
-                <%= link_to("Ed.t", edit_link_path(link)) %>
+  <%= link_to "Back to all Seyers", users_path %>
+  <%= link_to "Back to all Seyings", root_path %>
 
-
-
-                <%= link_to("Ded.t", link, method: :delete, class: "ded") %></p>
-        <% end %>
-<% end %>
+</div>

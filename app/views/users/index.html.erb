@@ -1,4 +1,6 @@
-<h2>Here is the list of users:</h2>
+<div id="user_index_wrapper">
+<h1>Here is the list of users:</h1>
 <% @users.each do |user| %>
 	<p><%= link_to(user.username, user) %></p>
 <% end %>
+</div>
