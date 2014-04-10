@@ -42,23 +42,33 @@ class LinksController < ApplicationController
   end
 
   def upvote
+    if !current_user
+      flash[:notice]="You gotta login to do that!"
+      redirect_to root_path
+    else
     @user=current_user
     @link=Link.find(params[:id])
     @link.score_link(@user, 1)
     redirect_to @user
+    end
   end
 
   def downvote
+    if !current_user
+      flash[:notice]="You gotta login to do that!"
+      redirect_to root_path
+    else
     @user=current_user
     @link=Link.find(params[:id])
     @link.score_link(@user, -1)
     redirect_to @user
+    end
   end
 
   def destroy
     @user=current_user
     @link=Link.find(params[:id])
-    @link.destroy(@user)
+    @link.destroy
     redirect_to @user
   end
 
