@@ -49,7 +49,6 @@ group :development, :test do
 	gem 'shoulda-matchers'
 	gem 'annotate'
 	gem 'simplecov'
-	gem 'better_errors'
 	gem 'rb-fsevent'
 	gem 'guard-rspec'
 	gem 'factory_girl_rails'
