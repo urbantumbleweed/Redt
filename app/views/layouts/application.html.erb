@@ -8,18 +8,28 @@
 </head>
 <body>
 
-<% unless current_user %>
-<%= link_to "Login", login_path %>
-<%= link_to "Sign Up", new_user_path %>
-<% end %>
+<header class="main_header">
 
-<% if current_user %>
-<%= link_to "All seyers", users_path %>
-<%= link_to "Sey Something", new_user_link_path(current_user) %>
-<%= link_to "Logout",  logout_path %>
-<% end %>
+  <img class="header_img" src='http://i.imgur.com/K4oDbui.png'/>
 
+  <nav class="main_nav">
+    <% unless current_user %>
+    <%= link_to "Login", login_path %>
+    <%= link_to "Sign Up", new_user_path %>
+    <% end %>
+    <%= link_to "She sed what?!", root_path %>
+    <% if current_user %>
+    <%= link_to "Sey Something", new_user_link_path(current_user) %>
+    <%= link_to "Logout",  logout_path %>
+    <% end %>
+  </nav>
+
+</header>
+
+
+<div class="wrapper">
 <%= yield %>
+</div>
 
 </body>
 </html>
