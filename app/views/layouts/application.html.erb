@@ -17,9 +17,11 @@
     <%= link_to "Login", login_path %>
     <%= link_to "Sign Up", new_user_path %>
     <% end %>
-    <%= link_to "She sed what?!", root_path %>
+    <%= link_to "Seyings", root_path %>
     <% if current_user %>
     <%= link_to "Sey Something", new_user_link_path(current_user) %>
+    <%= link_to "Your Page", user_path(current_user) %>
+    <%= link_to "Account", edit_user_path(current_user) %>
     <%= link_to "Logout",  logout_path %>
     <% end %>
   </nav>
