@@ -44,7 +44,7 @@ class Link < ActiveRecord::Base
 
   def score_link(user, score_change)
     vote = self.find_vote(user)
-    binding.pry
+    # binding.pry
 
     if vote == nil
         self.create_vote(user, score_change)
