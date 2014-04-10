@@ -49,7 +49,7 @@ class LinksController < ApplicationController
     @user=current_user
     @link=Link.find(params[:id])
     @link.score_link(@user, 1)
-    redirect_to @user
+    redirect_to root_path
     end
   end
 
@@ -61,7 +61,7 @@ class LinksController < ApplicationController
     @user=current_user
     @link=Link.find(params[:id])
     @link.score_link(@user, -1)
-    redirect_to @user
+    redirect_to root_path
     end
   end
 
