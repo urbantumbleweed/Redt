@@ -37,8 +37,8 @@ class LinksController < ApplicationController
 
   def update
     @link=Link.find(params[:id])
-    @link.update(link_params)
-    redirect_to @link
+    @link.update(title: link_params[:title])
+    redirect_to @link.user
   end
 
   def upvote
