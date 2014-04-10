@@ -6,6 +6,7 @@ RedtApp::Application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout'=>'sessions#destroy'
 
+  get '/links/most_recent' => 'links#most_recent', as: :most_recent_links
 
   resources :users do
     resources :links, shallow: :true
