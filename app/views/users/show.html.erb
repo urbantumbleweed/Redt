@@ -6,26 +6,26 @@
 <% end %>
 
   <% unless @user.links.empty? %>
-<% @user.links.each do |link| %>
+    <% @user.links.each do |link| %>
 
-<%= form_tag upvote_path(link) do %>
-<%= submit_tag "^" %>
-<% end %>
-<%= link.tally %>
+        <%= form_tag upvote_path(link) do %>
+            <%= submit_tag "^" %>
+        <% end %>
+        <%= link.tally %>
 
-<%= form_tag downvote_path(link) do %>
-<%= submit_tag  "v"%>
-<% end %>
-	<p>|
-		<%= link_to(link.title, link.link_url) %> |
-    <!-- hahahahah!! i love these! edt and dedt -->
-		<%= link_to("Ed.t", edit_link_path, class: "ed") %>
-    <!-- the syntax for deleting is "link text", object to be deleted, method
-    so it'd be "Ded,t", link, method:
-    also i would post this line in, it just makes a confirmation box pop up, you put it after the :delete so like :delete, data: {confirm: "Whatever message you want to pop-up"}-->
+        <%= form_tag downvote_path(link) do %>
+            <%= submit_tag  "v"%>
+        <% end %>
+        	<p>|
+        		<%= link_to(link.title, link.link_url) %> |
+            <!-- hahahahah!! i love these! edt and dedt -->
+        		<%= link_to("Ed.t", edit_link_path, class: "ed") %>
+            <!-- the syntax for deleting is "link text", object to be deleted, method
+            so it'd be "Ded,t", link, method:
+            also i would post this line in, it just makes a confirmation box pop up, you put it after the :delete so like :delete, data: {confirm: "Whatever message you want to pop-up"}-->
 
 
-		<%= link_to("Ded.t", link_path, method: :delete, class: "ded") %></p>
-    <% end %>
+        		<%= link_to("Ded.t", link, method: :delete, class: "ded") %></p>
+        <% end %>
 <% end %>
 

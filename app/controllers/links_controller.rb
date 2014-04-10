@@ -40,21 +40,21 @@ class LinksController < ApplicationController
   def upvote
     @user=current_user
     @link=Link.find(params[:id])
-    @link.upvote(@user)
+    @link.score_link(@user, 1)
     redirect_to @user
   end
 
   def downvote
     @user=current_user
     @link=Link.find(params[:id])
-    @link.downvote(@user)
+    @link.score_link(@user, -1)
     redirect_to @user
   end
 
   def destroy
     @user=current_user
     @link=Link.find(params[:id])
-    @link.destroy(@user)
+    @link.destroy
     redirect_to @user
   end
 

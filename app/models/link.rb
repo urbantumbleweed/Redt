@@ -30,26 +30,32 @@ class Link < ActiveRecord::Base
     Vote.where("link_id = ? AND user_id = ?", self.id, user.id).first
   end
 
-  def upvote
-    return true if (score_change > 0 && vote && vote.score == 1)
+  def update_tally(score)
+    self.update(:tally => self.tally += score)
   end
 
-  def downvote
-    return true if (score_change < 0 && vote && vote.score == -1)
+  def upvote(score, vote)
+    return (score > 0 && vote && vote.score < 1)
+  end
+
+  def downvote(score, vote)
+    return (score < 0 && vote && vote.score > -1)
   end
 
   def score_link(user, score_change)
     vote = self.find_vote(user)
+    binding.pry
 
     if vote == nil
         self.create_vote(user, score_change)
-        self.tally += score_change
-    elsif self.upvote || self.downvote
-      vote.score += score_change
-      self.tally += score_change
+        self.update_tally(score_change)
+    elsif self.upvote(score_change, vote) || self.downvote(score_change, vote)
+      vote.update_score(score_change)
+       self.update_tally(score_change)
     elsif vote.score == score_change
       return "Already voted"
     end
+    # binding.pry
   end
 
 
