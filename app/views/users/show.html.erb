@@ -1,8 +1,4 @@
-<h2><%= @user.username %>, this is for you.</h2>
-
-<%= link_to "Edit", edit_user_path(@user) %>
-<%= link_to "Delete" %>
-
+<h2><%= @user.username %>'s famous sayings</h2>
 
 <% if flash[:notice] %>
 <%= flash[:notice] %>
@@ -19,13 +15,10 @@
         <%= form_tag downvote_path(link) do %>
             <%= submit_tag  "v"%>
         <% end %>
-            <p>|
+            <p>
                 <%= link_to(link.title, link.link_url) %> |
-            <!-- hahahahah!! i love these! edt and dedt -->
-                <%= link_to("Ed.t", edit_link_path, class: "ed") %>
-            <!-- the syntax for deleting is "link text", object to be deleted, method
-            so it'd be "Ded,t", link, method:
-            also i would post this line in, it just makes a confirmation box pop up, you put it after the :delete so like :delete, data: {confirm: "Whatever message you want to pop-up"}-->
+                <%= link_to("Ed.t", edit_link_path(link)) %>
+
 
 
                 <%= link_to("Ded.t", link, method: :delete, class: "ded") %></p>

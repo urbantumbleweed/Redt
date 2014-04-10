@@ -2,4 +2,8 @@
 <h1 style="text-transform: none">Ok, you need to switch things up</h1>
 
 <%= render 'form' %>
+
+
+<%= link_to "Delete Account", @user, method: :delete, data: {confirm: Are you sure?} %>
+
 </div>
