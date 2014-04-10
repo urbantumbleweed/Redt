@@ -5,7 +5,6 @@ class Vote < ActiveRecord::Base
   validates :score, presence: true, numericality: { only_integer: true}
 
    def update_score(score)
-    self.update(:score => score)
+    self.update(:score => self.score += score)
   end
-
 end
