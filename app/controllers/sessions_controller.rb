@@ -1,7 +1,8 @@
-class SessionsController < ApplicationController
+   class SessionsController < ApplicationController
 
   def new
     # if current_user
+    #   flash[:notice]="You are already logged in, silly!"
     #   redirect_to user_path(current_user)
     # end
   end
