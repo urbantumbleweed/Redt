@@ -12,7 +12,7 @@
 <strong><%= @user.username.capitalize %></strong>
 seys
 <%= f.text_field(:title , :placeholder => "Catchy title goes here") %>
-<%= f.label(:link_url) %>
+<%= f.label(:link_url) %> <span class="errors">Note: You cannot edit a link once created</span>
 <%= f.text_field(:link_url) %>
 <%= f.submit "Sey it!" %>
 <% end %>
